@@ -1,7 +1,7 @@
 FROM clouder/clouder-nginx
 MAINTAINER Yannick Buron yburon@goclouder.net
 
-RUN apt-get -qq update && DEBIAN_FRONTEND=noninteractive apt-get -y -qq install php5-mysql php-apc php5-fpm php5-curl php5-gd php5-intl php-pear php5-imap php5-memcache memcached mc mysql-client git curl
+RUN apt-get -qq update && DEBIAN_FRONTEND=noninteractive apt-get -y -qq install php5-mysql php-apc php5-fpm php5-curl php5-gd php5-intl php-pear php5-imap php5-memcache memcached mc mysql-client git curl php5-mcrypt
 
 # php-fpm config
 RUN sed -i -e "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g" /etc/php5/fpm/php.ini
