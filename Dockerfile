@@ -19,6 +19,9 @@ RUN echo "command=/usr/bin/memcached -p 11211 -u www-data -m 64 -c 1024 -t 4" >>
 RUN curl -s https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
 
+RUN php5enmod mcrypt 
+RUN php5enmod imap
+
 # You need to add
 # $_SERVER['HTTPS']='on';
 # in wp-config.php after install to use https http://codex.wordpress.org/Administration_Over_SSL
