@@ -8,7 +8,6 @@ RUN sed -i -e "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g" /etc/php/7.0/fpm/php.
 RUN sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" /etc/php/7.0/fpm/php-fpm.conf
 RUN find /etc/php/7.0/cli/conf.d/ -name "*.ini" -exec sed -i -re 's/^(\s*)#(.*)/\1;\2/g' {} \;
 
-RUN mkdir /run/php
 RUN echo "" >> /etc/supervisor/conf.d/supervisord.conf
 RUN echo "[program:php-fpm]" >> /etc/supervisor/conf.d/supervisord.conf
 RUN echo "command=/usr/sbin/php-fpm7.0 -c /etc/php/7.0/fpm" >> /etc/supervisor/conf.d/supervisord.conf
